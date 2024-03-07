@@ -136,3 +136,9 @@ def get_image(filename):
 def files():
     image_files = get_uploaded_images()  # Get the list of uploaded image filenames
     return render_template('files.html', image_files=image_files)
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out successfully.', 'success')
+    return redirect(url_for('home'))
