@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uploaded Images</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block main %}
     <h1>Uploaded Images</h1>
-    <ul class="image-grid">
+    <div class="image-grid">
         {% for image_file in image_files %}
-        <li><img src="{{ url_for('get_image', filename=image_file) }}" alt="{{ image_file }}"></li>
+            <img src="{{ url_for('get_image', filename=image_file) }}" alt="{{ image_file }}">
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+{% endblock %}
